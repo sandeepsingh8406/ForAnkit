@@ -18,6 +18,3 @@ login(username,password)
 #Step 2
 expand_sales_download()
 setsalereportparameter(Region, Level, Application, Location, FromDate, ToDate)
-
-
-
