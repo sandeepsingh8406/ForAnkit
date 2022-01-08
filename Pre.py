@@ -2,6 +2,7 @@ import time
 import Paths
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+
 driver = webdriver.Chrome("D:\drivers\Resources\chromedriver.exe")
 def wait(int):
     time.sleep(int)
