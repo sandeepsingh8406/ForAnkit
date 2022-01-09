@@ -9,7 +9,6 @@ Application = "Select"
 Location = "Select"
 FromDate = "01-01-2022"
 ToDate = "07-01-2022"
-
 #----------------------------------------------------------------
 #Step 1
 launchpath(Path)
