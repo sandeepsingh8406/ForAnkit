@@ -2,8 +2,9 @@ import time
 import Paths
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-
-driver = webdriver.Chrome("D:\drivers\Resources\chromedriver.exe")
+import os
+driver = webdriver.Chrome(os.getcwd()+"\Resources\chromedriver.exe")
+driver.maximize_window()
 def wait(int):
     time.sleep(int)
 
