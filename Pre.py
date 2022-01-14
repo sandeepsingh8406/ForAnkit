@@ -3,12 +3,15 @@ import Paths
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import os
+import ExcelLoad
 driver = webdriver.Chrome(os.getcwd()+"\Resources\chromedriver.exe")
 driver.maximize_window()
 def wait(int):
     time.sleep(int)
 
-def launchpath(URL):
+def launchpath(Scenario):
+    URL = ExcelLoad.TestData(Scenario,"Url")
+    print("My data: ",URL)
     driver.get(URL)
 
 def click(element):
@@ -25,9 +28,9 @@ def setdate(element, date):
     valueclear(element)
     setvalue(element, date)
 
-def login(username, password):
-    setvalue(Paths.username, username)
-    setvalue(Paths.password, password)
+def login(Scenario):
+    setvalue(Paths.username, ExcelLoad.TestData(Scenario,"Username"))
+    setvalue(Paths.password, ExcelLoad.TestData(Scenario,"Password"))
     driver.implicitly_wait(2)
     click(Paths.signin)
     driver.implicitly_wait(5)
@@ -40,14 +43,14 @@ def set_drop_down(element, value):
     click(element)
     click(Paths.valueselect(value))
 
-def setsalereportparameter(Region, Level, Application, Location, FromDate, ToDate):
+def setsalereportparameter(Scenario):
     driver.implicitly_wait(5)
-    set_drop_down(Paths.Region, Region)
-    set_drop_down(Paths.Level, Level)
-    set_drop_down(Paths.Application, Application)
-    set_drop_down(Paths.Location, Location)
-    setdate(Paths.datefrom, FromDate)
-    setdate(Paths.dateto, ToDate)
+    set_drop_down(Paths.Region, ExcelLoad.TestData(Scenario,"Region"))
+    set_drop_down(Paths.Level, ExcelLoad.TestData(Scenario,"Level"))
+    set_drop_down(Paths.Application, ExcelLoad.TestData(Scenario,"Application"))
+    set_drop_down(Paths.Location, ExcelLoad.TestData(Scenario,"Location"))
+    setdate(Paths.datefrom, ExcelLoad.TestData(Scenario,"Fromdate"))
+    setdate(Paths.dateto, ExcelLoad.TestData(Scenario,"Todate"))
     click(Paths.Submit_Report)
 
 
