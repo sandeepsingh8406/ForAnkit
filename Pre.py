@@ -52,6 +52,7 @@ def setsalereportparameter(Scenario):
     setdate(Paths.datefrom, ExcelLoad.TestData(Scenario,"Fromdate"))
     setdate(Paths.dateto, ExcelLoad.TestData(Scenario,"Todate"))
     click(Paths.Submit_Report)
-
+def newtab():
+    driver.execute_script("window.open('');")
 
 
