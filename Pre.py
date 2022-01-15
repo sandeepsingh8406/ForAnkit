@@ -11,7 +11,6 @@ def wait(int):
 
 def launchpath(Scenario):
     URL = ExcelLoad.TestData(Scenario,"Url")
-    print("My data: ",URL)
     driver.get(URL)
 
 def click(element):
@@ -52,7 +51,7 @@ def setsalereportparameter(Scenario):
     setdate(Paths.datefrom, ExcelLoad.TestData(Scenario,"Fromdate"))
     setdate(Paths.dateto, ExcelLoad.TestData(Scenario,"Todate"))
     click(Paths.Submit_Report)
-def newtab():
+def newtab(Tab):
     driver.execute_script("window.open('');")
-
+    driver.switch_to.window(driver.window_handles[Tab])
 
