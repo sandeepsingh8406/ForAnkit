@@ -55,3 +55,9 @@ def newtab(Tab):
     driver.execute_script("window.open('');")
     driver.switch_to.window(driver.window_handles[Tab])
 
+def login_DMS(Scenario):
+    setvalue(Paths.DMS_username, ExcelLoad.TestData(Scenario,"Username"))
+    setvalue(Paths.DMS_password, ExcelLoad.TestData(Scenario,"Password"))
+    driver.implicitly_wait(2)
+    click(Paths.DMS_signin)
+    driver.implicitly_wait(5)

@@ -17,3 +17,9 @@ valuetoselect = "//li[text()='{o}']"
 def valueselect(value):
     value1 = valuetoselect.replace('{o}',value)
     return value1
+
+#DMS Login
+
+DMS_signin = "//input[@class='login_bt' and @type='submit']"
+DMS_password = "//input[@class='input_text' and @type='password']"
+DMS_username = "//input[@class='input_text' and @type='text']"
